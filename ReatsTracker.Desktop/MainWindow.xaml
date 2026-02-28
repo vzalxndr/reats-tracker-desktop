@@ -84,14 +84,16 @@
                 CornerRadius="5">
 
             <Grid>
-                <!-- 1. Создаем "маску" с такими же закруглениями для обрезки контента внутри -->
-                <!-- CornerRadius чуть меньше (4.5), чтобы не залезать на рамку толщиной 0.5 -->
                 <Border x:Name="ClipMask" Background="White" CornerRadius="4.5"/>
 
-                <ListBox Background="Transparent"
-                         BorderThickness="0"
-                         HorizontalContentAlignment="Stretch"
-                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox 
+                    x:Name="CompaniesList" 
+                    ItemsSource="{Binding Companies}" 
+                    DisplayMemberPath="Name"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    HorizontalContentAlignment="Stretch"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                     <ListBox.OpacityMask>
                         <VisualBrush Visual="{Binding ElementName=ClipMask}"/>
@@ -117,7 +119,7 @@
                                                 <Setter TargetName="ItemBorder" Property="Background" Value="#dde6ed"/>
                                                 <Setter Property="Foreground" Value="Black"/>
                                             </Trigger>
-                                            
+
                                             <Trigger Property="IsSelected" Value="True">
                                                 <Setter TargetName="ItemBorder" Property="Background" Value="#526d82"/>
                                                 <Setter Property="Foreground" Value="White"/>
@@ -129,11 +131,6 @@
                             </Setter>
                         </Style>
                     </ListBox.ItemContainerStyle>
-
-                    <ListBoxItem Content="Microsoft"/>
-                    <ListBoxItem Content="Google"/>
-                    <ListBoxItem Content="Apple"/>
-                    <ListBoxItem Content="OpenAI"/>
                 </ListBox>
             </Grid>
         </Border>
