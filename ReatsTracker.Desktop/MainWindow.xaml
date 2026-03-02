@@ -89,6 +89,7 @@
                 <ListBox 
                     x:Name="CompaniesList" 
                     ItemsSource="{Binding Companies}" 
+                    SelectedItem="{Binding SelectedCompany, Mode=TwoWay}"
                     DisplayMemberPath="Name"
                     Background="Transparent"
                     BorderThickness="0"
@@ -144,12 +145,30 @@
                 BorderBrush="#526d82"
                 BorderThickness="0.5" 
                 CornerRadius="5">
-            <TextBlock Text="Select a company on the left to view its vacancies..." 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center" 
-                       Foreground="Gray" 
-                       FontSize="14"
-                       FontWeight="Light"/>
+            <StackPanel Margin="30">
+
+                <TextBlock Text="{Binding SelectedCompany.Name}" 
+                   FontSize="32" 
+                   FontWeight="Bold" 
+                   Foreground="#27374d" 
+                   Margin="0,0,0,5"/>
+
+                <TextBlock Text="{Binding SelectedCompany.Website}" 
+                   FontSize="16" 
+                   Foreground="#526d82" 
+                   Margin="0,0,0,30"/>
+
+                <TextBlock Text="Vacancies:" 
+                   FontSize="18" 
+                   FontWeight="SemiBold" 
+                   Foreground="#27374d" 
+                   Margin="0,0,0,10"/>
+
+                <TextBlock Text="Vacancies table soon..." 
+                   FontSize="14" 
+                   Foreground="Gray" 
+                   FontStyle="Italic"/>
+            </StackPanel>
         </Border>
     </Grid>
 </Window>
