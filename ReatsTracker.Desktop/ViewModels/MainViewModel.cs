@@ -14,6 +14,7 @@ namespace ReatsTracker.Desktop.ViewModels
     {
         private readonly ApiService _apiService;
         private ObservableCollection<Company> _companies;
+        private Company _selectedCompany;
 
         public ObservableCollection<Company> Companies
         {
@@ -24,6 +25,16 @@ namespace ReatsTracker.Desktop.ViewModels
             set
             {
                 _companies = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Company SelectedCompany
+        {
+            get { return _selectedCompany; }
+            set
+            {
+                _selectedCompany = value;
                 OnPropertyChanged();
             }
         }
