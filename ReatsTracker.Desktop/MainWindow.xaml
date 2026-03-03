@@ -5,50 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReatsTracker.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Window.Resources>
-       
+
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="150" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Grid.ColumnSpan="3" Background="#dde6ed"
-        BorderBrush="#526d82" BorderThickness="0.5">
+        <Border Grid.Row="0"
+                Grid.ColumnSpan="3"
+                Background="#dde6ed"
+                BorderBrush="#526d82"
+                BorderThickness="0.5">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    Margin="10,0">
+                            VerticalAlignment="Center"
+                            Margin="10,0">
                     <Button Content="Add company"
-                    Style="{StaticResource RoundedButtonStyle}"
-                    Width="110" Height="30"
-                    Margin="0,0,10,0"/>
+                            Click="AddCompanyButton_Click"
+                            Style="{StaticResource RoundedButtonStyle}"
+                            Width="110"
+                            Height="30"
+                            Margin="0,0, 10,0" />
                     <Button Content="Refresh"
-                    Style="{StaticResource RoundedButtonStyle}"
-                    Width="110" Height="30"/>
+                            Style="{StaticResource RoundedButtonStyle}"
+                            Width="110"
+                            Height="30" />
                 </StackPanel>
 
                 <TextBlock Grid.Column="2"
-                   Text="reats-app"
-                   FontSize="18"
-                   Foreground="#526d82"
-                   FontWeight="ExtraLight"
-                   VerticalAlignment="Center"
-                   Margin="0,0,20,3"/>
+                           Text="reats-app"
+                           FontSize="18"
+                           Foreground="#526d82"
+                           FontWeight="ExtraLight"
+                           VerticalAlignment="Center"
+                           Margin="0,0,20,3" />
             </Grid>
         </Border>
 
@@ -62,27 +70,31 @@
                 CornerRadius="5">
 
             <Grid>
-                <Border x:Name="ClipMask" Background="White" CornerRadius="4.5"/>
+                <Border x:Name="ClipMask"
+                        Background="White"
+                        CornerRadius="4.5" />
 
-                <ListBox 
-                    x:Name="CompaniesList" 
-                    ItemsSource="{Binding Companies}" 
-                    SelectedItem="{Binding SelectedCompany, Mode=TwoWay}"
-                    DisplayMemberPath="Name"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    HorizontalContentAlignment="Stretch"
-                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox x:Name="CompaniesList"
+                         ItemsSource="{Binding Companies}"
+                         SelectedItem="{Binding SelectedCompany, Mode=TwoWay}"
+                         DisplayMemberPath="Name"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         HorizontalContentAlignment="Stretch"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                     <ListBox.OpacityMask>
-                        <VisualBrush Visual="{Binding ElementName=ClipMask}"/>
+                        <VisualBrush Visual="{Binding ElementName=ClipMask}" />
                     </ListBox.OpacityMask>
 
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
-                            <Setter Property="Padding" Value="10"/>
-                            <Setter Property="Foreground" Value="#526d82"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Padding"
+                                    Value="10" />
+                            <Setter Property="Foreground"
+                                    Value="#526d82" />
+                            <Setter Property="HorizontalContentAlignment"
+                                    Value="Stretch" />
 
                             <Setter Property="Template">
                                 <Setter.Value>
@@ -90,18 +102,27 @@
                                         <Border x:Name="ItemBorder"
                                                 Background="Transparent"
                                                 Padding="{TemplateBinding Padding}">
-                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                            <ContentPresenter HorizontalAlignment="Left"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                         <ControlTemplate.Triggers>
 
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="ItemBorder" Property="Background" Value="#dde6ed"/>
-                                                <Setter Property="Foreground" Value="Black"/>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter TargetName="ItemBorder"
+                                                        Property="Background"
+                                                        Value="#dde6ed" />
+                                                <Setter Property="Foreground"
+                                                        Value="Black" />
                                             </Trigger>
 
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="ItemBorder" Property="Background" Value="#526d82"/>
-                                                <Setter Property="Foreground" Value="White"/>
+                                            <Trigger Property="IsSelected"
+                                                     Value="True">
+                                                <Setter TargetName="ItemBorder"
+                                                        Property="Background"
+                                                        Value="#526d82" />
+                                                <Setter Property="Foreground"
+                                                        Value="White" />
                                             </Trigger>
 
                                         </ControlTemplate.Triggers>
@@ -115,37 +136,37 @@
         </Border>
 
 
-        <Border Grid.Row="1" 
-                Grid.Column="1" 
-                Grid.ColumnSpan="2" 
-                Margin="0,10,10,10" 
-                Background="White" 
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Margin="0,10,10,10"
+                Background="White"
                 BorderBrush="#526d82"
-                BorderThickness="0.5" 
+                BorderThickness="0.5"
                 CornerRadius="5">
             <StackPanel Margin="30">
 
-                <TextBlock Text="{Binding SelectedCompany.Name}" 
-                   FontSize="32" 
-                   FontWeight="Bold" 
-                   Foreground="#27374d" 
-                   Margin="0,0,0,5"/>
+                <TextBlock Text="{Binding SelectedCompany.Name}"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           Foreground="#27374d"
+                           Margin="0,0,0,5" />
 
-                <TextBlock Text="{Binding SelectedCompany.Website}" 
-                   FontSize="16" 
-                   Foreground="#526d82" 
-                   Margin="0,0,0,30"/>
+                <TextBlock Text="{Binding SelectedCompany.Website}"
+                           FontSize="16"
+                           Foreground="#526d82"
+                           Margin="0,0,0,30" />
 
-                <TextBlock Text="Vacancies:" 
-                   FontSize="18" 
-                   FontWeight="SemiBold" 
-                   Foreground="#27374d" 
-                   Margin="0,0,0,10"/>
+                <TextBlock Text="Vacancies:"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="#27374d"
+                           Margin="0,0,0,10" />
 
-                <TextBlock Text="Vacancies table soon..." 
-                   FontSize="14" 
-                   Foreground="Gray" 
-                   FontStyle="Italic"/>
+                <TextBlock Text="Vacancies table soon..."
+                           FontSize="14"
+                           Foreground="Gray"
+                           FontStyle="Italic" />
             </StackPanel>
         </Border>
     </Grid>

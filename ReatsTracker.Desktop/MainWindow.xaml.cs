@@ -1,4 +1,6 @@
 ﻿using ReatsTracker.Desktop.ViewModels;
+using ReatsTracker.Desktop.Views;
+using System.Drawing.Printing;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +23,18 @@ namespace ReatsTracker.Desktop
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+        }
+
+        private async void AddCompanyButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new AddCompanyWindow();
+            window.Owner = this;
+
+            if (window.ShowDialog() == true)
+            {
+                var viewModel = (MainViewModel)DataContext;
+                await viewModel.AddCompanyAsync(window.NewCompany);
+            }
         }
     }
 }

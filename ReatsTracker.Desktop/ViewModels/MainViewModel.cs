@@ -1,5 +1,6 @@
 ﻿using ReatsTracker.Desktop.Models;
 using ReatsTracker.Desktop.Services;
+using ReatsTracker.Desktop.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -51,6 +52,16 @@ namespace ReatsTracker.Desktop.ViewModels
         {
             var data = await _apiService.GetCompaniesAsync();
             Companies = new ObservableCollection<Company>(data);
+        }
+
+        public async Task AddCompanyAsync(Company company)
+        {
+            var response = await _apiService.AddCompanyAsync(company);
+
+            if (response != null)
+            {
+                Companies.Add(response);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
