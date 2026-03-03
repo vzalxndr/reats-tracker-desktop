@@ -1,0 +1,88 @@
+﻿<Window x:Class="ReatsTracker.Desktop.Views.AddCompanyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReatsTracker.Desktop.Views"
+        mc:Ignorable="d"
+        Title="AddCompanyWindow"
+        Height="300"
+        Width="550">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Grid.ColumnSpan="3"
+                Background="#dde6ed"
+                BorderBrush="#526d82"
+                BorderThickness="0,0,0,1">
+            <TextBlock Text="Add company"
+                       FontSize="20"
+                       Foreground="#526d82"
+                       VerticalAlignment="Center"
+                       Margin="15,0,0,0" />
+        </Border>
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Company name:"
+                   FontSize="16"
+                   Foreground="#526d82"
+                   VerticalAlignment="Center"
+                   Margin="15,20,0,20" />
+        
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 x:Name="CompanyNameTextBox"
+                 Height="30"
+                 VerticalContentAlignment="Center" />
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Company URL:"
+                   FontSize="16"
+                   Foreground="#526d82"
+                   VerticalAlignment="Center"
+                   Margin="15,0,0,0" />
+
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 x:Name="CompanyUrlTextBox"
+                 Height="30"
+                 VerticalContentAlignment="Center" />
+
+        <StackPanel Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,20,20">
+
+            <Button Content="Cancel"
+                    Style="{StaticResource RoundedButtonStyle}"
+                    Background="#bdbdbd"
+                    Width="100"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Click="CancelAddCompany_Click" />
+
+            <Button Content="Add company"
+                    Style="{StaticResource RoundedButtonStyle}"
+                    Width="120"
+                    Height="35"
+                    Click="AddCompany_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

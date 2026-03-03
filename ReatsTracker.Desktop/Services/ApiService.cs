@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
@@ -33,6 +35,29 @@ namespace ReatsTracker.Desktop.Services
             {
                 return new List<Company>();
             }
+        }
+
+        public async Task<Company> AddCompanyAsync(Company company)
+        {
+            if (!company.Website.StartsWith("http"))
+            {
+                company.Website = "https://" + company.Website;
+            }
+
+            var response = await _httpClient.PostAsJsonAsync($"{BaseUrl}/companies", new
+            {
+                name = company.Name,
+                website = company.Website
+            });
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                throw new Exception($"ERROR ({response.StatusCode}): {errorContent}");
+            }
+
+            var createdCompany = await response.Content.ReadFromJsonAsync<Company>();
+            return createdCompany;
         }
     }
 }
