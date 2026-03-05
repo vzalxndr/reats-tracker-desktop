@@ -36,5 +36,11 @@ namespace ReatsTracker.Desktop
                 await viewModel.AddCompanyAsync(window.NewCompany);
             }
         }
+
+        private async void DeleteCompany_Click(object sender, RoutedEventArgs e)
+        {
+            var viewModel = (MainViewModel)DataContext;
+            await viewModel.DeleteCompanyAsync();
+        }
     }
 }

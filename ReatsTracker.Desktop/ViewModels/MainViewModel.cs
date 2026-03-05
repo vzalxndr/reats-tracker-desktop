@@ -64,6 +64,18 @@ namespace ReatsTracker.Desktop.ViewModels
             }
         }
 
+        public async Task DeleteCompanyAsync()
+        {
+            if (SelectedCompany == null) return;
+
+            var response = await _apiService.DeleteCompanyAsync(SelectedCompany.Id);
+            if (response)
+            {
+            {
+                Companies.Remove(SelectedCompany);
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {

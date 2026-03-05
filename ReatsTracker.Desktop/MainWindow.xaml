@@ -136,38 +136,62 @@
         </Border>
 
 
-        <Border Grid.Row="1"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Margin="0,10,10,10"
-                Background="White"
-                BorderBrush="#526d82"
-                BorderThickness="0.5"
-                CornerRadius="5">
-            <StackPanel Margin="30">
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Grid.ColumnSpan="2">
 
-                <TextBlock Text="{Binding SelectedCompany.Name}"
-                           FontSize="32"
-                           FontWeight="Bold"
-                           Foreground="#27374d"
-                           Margin="0,0,0,5" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-                <TextBlock Text="{Binding SelectedCompany.Website}"
-                           FontSize="16"
-                           Foreground="#526d82"
-                           Margin="0,0,0,30" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Vacancies:"
-                           FontSize="18"
-                           FontWeight="SemiBold"
-                           Foreground="#27374d"
-                           Margin="0,0,0,10" />
+            <Border Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,10,10,0"
+                    Background="White"
+                    BorderBrush="#526d82"
+                    BorderThickness="0.5"
+                    CornerRadius="5">
 
-                <TextBlock Text="Vacancies table soon..."
-                           FontSize="14"
-                           Foreground="Gray"
-                           FontStyle="Italic" />
-            </StackPanel>
-        </Border>
+                <StackPanel Margin="30">
+
+                    <TextBlock Text="{Binding SelectedCompany.Name}"
+                               FontSize="32"
+                               FontWeight="Bold"
+                               Foreground="#27374d"
+                               Margin="0,0,0,5" />
+
+                    <TextBlock Text="{Binding SelectedCompany.Website}"
+                               FontSize="16"
+                               Foreground="#526d82"
+                               Margin="0,0,0,30" />
+
+                    <TextBlock Text="Vacancies:"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#27374d"
+                               Margin="0,0,0,10" />
+
+                    <TextBlock Text="Vacancies table soon..."
+                               FontSize="14"
+                               Foreground="Gray"
+                               FontStyle="Italic" />
+                </StackPanel>
+            </Border>
+            <Button Content="Delete"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Click="DeleteCompany_Click"
+                    Style="{StaticResource RoundedButtonStyle}"
+                    Width="110"
+                    Height="30"
+                    Margin="20,10,20,10" />
+        </Grid>
     </Grid>
 </Window>

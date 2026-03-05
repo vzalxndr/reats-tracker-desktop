@@ -59,5 +59,18 @@ namespace ReatsTracker.Desktop.Services
             var createdCompany = await response.Content.ReadFromJsonAsync<Company>();
             return createdCompany;
         }
+
+        public async Task<bool> DeleteCompanyAsync(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"{BaseUrl}/companies/{id}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                throw new Exception($"ERROR ({response.StatusCode}): {errorContent}");
+            }
+
+            return true;
+        }
     }
 }
