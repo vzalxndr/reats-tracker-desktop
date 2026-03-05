@@ -184,11 +184,12 @@
                                FontStyle="Italic" />
                 </StackPanel>
             </Border>
+
             <Button Content="Delete"
                     Grid.Row="1"
                     Grid.Column="1"
                     Click="DeleteCompany_Click"
-                    Style="{StaticResource RoundedButtonStyle}"
+                    Style="{StaticResource RoundedButtonStyleRed}"
                     Width="110"
                     Height="30"
                     Margin="20,10,20,10" />
