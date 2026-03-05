@@ -4,26 +4,68 @@
              xmlns:local="clr-namespace:ReatsTracker.Desktop"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="RoundedButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#526D82"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Light"/>
-            <Setter Property="BorderThickness" Value="0"/>
+        <Style x:Key="RoundedButtonStyle"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="#526D82" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="FontWeight"
+                    Value="Light" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                          CornerRadius="8">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
 
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#435a6b"/>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#435a6b" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="RoundedButtonStyleRed"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="#cf4242" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="FontWeight"
+                    Value="Light" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#b53838" />
                 </Trigger>
             </Style.Triggers>
         </Style>
