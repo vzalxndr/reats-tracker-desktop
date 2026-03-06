@@ -42,5 +42,11 @@ namespace ReatsTracker.Desktop
             var viewModel = (MainViewModel)DataContext;
             await viewModel.DeleteCompanyAsync();
         }
+
+        private async void RefreshCompanies_Click(object sender, RoutedEventArgs e)
+        {
+            var viewModel = (MainViewModel)DataContext;
+            await viewModel.RefreshCompaniesAsync();
+        }
     }
 }

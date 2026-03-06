@@ -54,6 +54,11 @@ namespace ReatsTracker.Desktop.ViewModels
             Companies = new ObservableCollection<Company>(data);
         }
 
+        public async Task RefreshCompaniesAsync()
+        {
+            await LoadCompaniesAsync();
+        }
+
         public async Task AddCompanyAsync(Company company)
         {
             var response = await _apiService.AddCompanyAsync(company);
